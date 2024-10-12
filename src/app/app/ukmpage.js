@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ukmprofile.module.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function UKMPage() {
   const [ukms, setUkms] = useState([]);
@@ -35,7 +36,7 @@ export default function UKMPage() {
             <>
               <div className={styles.card} onClick={() => handlePush(ukm.id)}>
                 <div className={styles.cardImg}>
-                  <img
+                  <Image
                     src={`data:image/jpeg;base64,${Buffer.from(
                       ukm.avatar
                     ).toString("base64")}`}

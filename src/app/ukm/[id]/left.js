@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./left.module.css";
+import Image from "next/image";
 
 export default function ScreenLeft(userId) {
   const params = useParams();
@@ -92,7 +93,7 @@ export default function ScreenLeft(userId) {
         <>
           <h1>{data.name}</h1>
           <div className={styles.wrapImg}>
-            <img
+            <Image
               src={`data:image/jpeg;base64,${Buffer.from(data.avatar).toString(
                 "base64"
               )}`}

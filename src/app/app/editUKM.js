@@ -206,7 +206,7 @@ export default function EditUKM() {
                 {selectedAvatar ? (
                   <>
                     <h3>Pratinjau Avatar</h3>
-                    <img
+                    <Image
                       src={preview}
                       alt="Avatar Preview"
                       width={150}
@@ -216,7 +216,7 @@ export default function EditUKM() {
                 ) : (
                   <>
                     <h3>Pratinjau Avatar</h3>
-                    <img
+                    <Image
                       src={`data:image/jpeg;base64,${Buffer.from(
                         selectedUkm.avatar
                       ).toString("base64")}`}

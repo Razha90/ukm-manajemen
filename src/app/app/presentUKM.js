@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./present.module.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function PresentUKM({ userId }) {
   const [data, setData] = useState([]); // Inisialisasi sebagai array kosong
@@ -39,7 +40,7 @@ export default function PresentUKM({ userId }) {
           <div className={styles.cardWrap}>
             {data.map((item) => (
               <div key={item.id} className={styles.ukmCard} onClick={() => handlePush(item.ukm.id)}>
-                <img
+                <Image
                   src={`data:image/jpeg;base64,${Buffer.from(
                     item.ukm.avatar
                   ).toString("base64")}`}

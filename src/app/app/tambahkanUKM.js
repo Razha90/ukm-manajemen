@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 
 export default function TambahkanUKM() {
@@ -72,7 +73,7 @@ export default function TambahkanUKM() {
         {preview && (
           <div>
             <h3>Pratinjau Avatar</h3>
-            <img src={preview} alt="Avatar Preview" width={150} height={150} />
+            <Image src={preview} alt="Avatar Preview" width={150} height={150} />
           </div>
         )}
         <div>

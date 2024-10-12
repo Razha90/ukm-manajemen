@@ -21,10 +21,16 @@ export async function POST(request) {
         ukm: true, // Sertakan data UKM yang terkait
       },
     });
-
-    if (events.length === 0) {
-      // Mengembalikan pesan khusus jika data kosong
-      return sendResponse({ message: 'Tidak ada event ditemukan untuk ukmId ini' }, 404);
+    
+    // Logging hasil event
+    
+    // Pengecekan untuk mengatasi kasus ketika events adalah array kosong
+    if (!events || events.length === 0) {
+      // Mengembalikan pesan khusus jika tidak ada event yang ditemukan
+      return NextResponse.json(
+        { message: 'Tidak ada event ditemukan untuk ukmId ini' },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json(events);

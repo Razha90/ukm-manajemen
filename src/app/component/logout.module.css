@@ -1,0 +1,41 @@
+
+.navbar {
+  position: relative;
+}
+
+.dropdownMenu {
+  display: none; /* Sembunyikan menu awalnya */
+  position: absolute;
+  top: 100%; /* Tempatkan menu di bawah elemen user-section */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  gap: 10px;
+}
+
+.userSection:hover .dropdownMenu {
+  display: block; /* Tampilkan saat di hover */
+}
+
+.logoutBtn {
+  background-color: red;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: white;
+
+}
+
+
+.logoutBtn:hover {
+  background-color: darkred;
+}

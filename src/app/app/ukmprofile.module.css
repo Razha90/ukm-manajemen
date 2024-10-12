@@ -1,0 +1,65 @@
+/* .wrapper {
+} */
+
+.wrapper h1 {
+  text-align: center;
+}
+
+.cardWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.card {
+  width: 300px;
+  min-width: 300px;
+  height: 300px;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  transition: .3s ease-in;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cardImg {
+  width: 100%;
+  height: 70%;
+  text-align: center;
+}
+
+.cardContent {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContent h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Batasi hanya sampai 2 baris */
+  overflow: hidden; /* Sembunyikan teks yang melebihi batas */
+  text-overflow: ellipsis; /* Tambahkan tanda ... */
+  white-space: normal; /* Mengatur teks agar tidak dalam satu baris */
+}
+
+
+.card img {
+  width: 280px;
+  height: 100%;
+  min-width: 230px;
+}

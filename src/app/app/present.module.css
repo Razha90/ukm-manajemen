@@ -1,0 +1,45 @@
+.wrapper h1 {
+  text-align: center;
+}
+
+.wrapper h2 {
+  text-align: center;
+}
+
+.cardWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.ukmCard {
+  border: 1px solid #e0e0e0; /* Border untuk kartu */
+  border-radius: 8px; /* Membuat sudut kartu menjadi melengkung */
+  padding: 16px; /* Memberikan ruang di dalam kartu */
+  margin: 10px; /* Margin di sekitar kartu */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+  transition: transform 0.2s; /* Animasi saat hover */
+  background-color: #ffffff; /* Warna latar belakang kartu */
+  text-align: center; /* Mengatur teks di tengah */
+  width: 250px;
+  cursor: pointer;
+}
+
+.ukmCard:hover {
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.avatar {
+  width: 100%; /* Gambar mengambil lebar penuh kartu */
+  height: auto; /* Menjaga aspek rasio gambar */
+  border-radius: 8px; /* Melengkungkan sudut gambar */
+}
+
+.title {
+  font-size: 1.25rem; /* Ukuran font judul */
+  margin-top: 12px; /* Jarak atas judul */
+  color: #333; /* Warna teks judul */
+}

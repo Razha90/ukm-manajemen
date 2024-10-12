@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 10px;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.eventCard {
+  background-color: #f9f9f9; /* Warna latar belakang yang lebih lembut */
+  border: 1px solid #ddd; /* Garis batas untuk pemisahan */
+  border-radius: 8px; /* Sudut membulat */
+  padding: 16px; /* Ruang di dalam card */
+  margin: 16px 0; /* Jarak antar card */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+  transition: transform 0.2s; /* Efek transisi saat hover */
+}
+
+.eventCard:hover {
+  transform: scale(1.02); /* Membesar sedikit saat dihover */
+}
+
+.title {
+  font-size: 1.5em; /* Ukuran font untuk judul */
+  color: #333; /* Warna teks judul */
+}
+
+.dateContainer {
+  display: flex; /* Menggunakan flexbox untuk penataan tanggal */
+  justify-content: space-between; /* Meratakan ruang antara tanggal */
+  margin: 10px 0; /* Jarak antar elemen tanggal */
+}
+
+.date {
+  font-size: 0.9em; /* Ukuran font untuk tanggal */
+  color: #666; /* Warna teks yang lebih lembut */
+}
+
+.selesai {
+  color: #ff5722; /* Warna untuk kata "Sampai Selesai" */
+  font-weight: bold; /* Penekanan pada teks */
+}
+
+.location {
+  font-size: 1em; /* Ukuran font untuk lokasi */
+  margin: 8px 0; /* Jarak atas dan bawah */
+}
+
+.desc {
+  font-size: 0.9em; /* Ukuran font untuk deskripsi */
+  color: #555; /* Warna teks deskripsi */
+  line-height: 1.5; /* Jarak antar baris deskripsi */
+}

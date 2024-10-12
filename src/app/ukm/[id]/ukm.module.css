@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  min-width: 600px;
+  height: 100vh;
+  min-height: 400px;
+  padding: 1%;
+  gap: 1%;
+}
+
+.left {
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  height: 100%;
+}
+
+.right {
+  width: 19%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  height: 100%;
+}

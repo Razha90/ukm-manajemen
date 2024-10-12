@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  GUEST
+}
+
+enum Template {
+  TEXT
+  IMAGE
+  VIDIO
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String    @unique
+  role     Role      @default(GUEST)
+  password String
+  sessions Session[]
+  ukms     UserUkm[] // Relasi many-to-many melalui tabel penghubung UserUkm
+}
+
+model Ukm {
+  id       Int       @id @default(autoincrement())
+  name     String
+  avatar   Bytes?
+  post     String @db.Text
+  users    UserUkm[]
+  event    Event[] 
+}
+
+model Event {
+  id          Int       @id @default(autoincrement())
+  name        String
+  start       DateTime
+  end         DateTime   // Tanggal dan waktu acara
+  location    String   // Lokasi acara
+  description String?    @db.Text  // Deskripsi opsional acara
+  ukm         Ukm        @relation(fields: [ukmId], references: [id])
+  ukmId       Int        // Foreign key untuk menghubungkan ke UKM
+}
+
+model UserUkm {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  ukmId  Int
+  user   User @relation(fields: [userId], references: [id])
+  ukm    Ukm  @relation(fields: [ukmId], references: [id])
+
+  @@unique([userId, ukmId]) // Untuk memastikan user hanya bisa berhubungan dengan satu UKM sekali
+}
+
+model Session {
+  id           Int      @id @default(autoincrement())
+  sessionToken String   @unique
+  userId       Int
+  user         User     @relation(fields: [userId], references: [id])
+  expires      DateTime
+}

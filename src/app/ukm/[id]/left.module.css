@@ -1,0 +1,104 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper h1 {
+  text-align: center;
+}
+
+.wrapper img {
+  width: 400px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.wrapImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 50px;
+}
+
+/* Styling untuk artikel */
+.wrapper article {
+  max-width: 800px; /* Lebar maksimum artikel */
+  margin: 20px auto; /* Margin di atas dan bawah, tengah secara horizontal */
+  padding: 20px; /* Padding dalam artikel */
+  border: 1px solid #ddd; /* Border luar */
+  border-radius: 8px; /* Sudut melengkung */
+  background-color: #f9f9f9; /* Warna latar belakang */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan */
+  font-family: Arial, sans-serif; /* Font artikel */
+  line-height: 1.6; /* Tinggi baris untuk keterbacaan */
+}
+
+/* Styling untuk heading */
+.wrapper article h2 {
+  color: #2c3e50; /* Warna heading */
+  margin-top: 30px; /* Jarak atas untuk heading */
+  margin-bottom: 10px; /* Jarak bawah untuk heading */
+}
+
+/* Styling untuk paragraf */
+.wrapper article p {
+  margin-bottom: 15px; /* Jarak bawah untuk paragraf */
+  color: #34495e; /* Warna teks paragraf */
+}
+
+/* Styling untuk teks tebal */
+.wrapper article b {
+  color: #e74c3c; /* Warna untuk teks tebal */
+}
+
+/* Styling untuk teks miring */
+.wrapper article i {
+  color: #8e44ad; /* Warna untuk teks miring */
+}
+
+/* Styling untuk list */
+.wrapper article ul {
+  padding-left: 20px; /* Padding kiri untuk list */
+}
+
+.wrapper article ul li {
+  margin-bottom: 10px; /* Jarak bawah untuk setiap item list */
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button button {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--background);
+  background-color: var(--secondary);
+  padding: 20px 35px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button button:hover {
+  opacity: .8;
+}
+
+.back {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+

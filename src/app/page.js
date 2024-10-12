@@ -1,95 +1,92 @@
+import Link from "next/link";
+import styles from "./home.module.css";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { cookies } from "next/headers";
+import prisma from "./lib/prisma";
+import NameLogout from "./component/nameLogout";
 
-export default function Home() {
+async function getUserFromSession() {
+  const cookieStore = cookies(); // Mengambil cookies dari header
+  const sessionToken = cookieStore.get("session")?.value; // Mengambil session token
+
+  if (!sessionToken) {
+    return null; // Jika tidak ada session token, return null
+  }
+
+  // Cari session di database berdasarkan session token
+  const session = await prisma.session.findUnique({
+    where: { sessionToken },
+    include: { user: true }, // Sertakan data user
+  });
+
+  if (!session) {
+    return null; // Jika tidak ada session yang valid, return null
+  }
+
+  return session.user; // Return data user
+}
+
+export default async function Home() {
+
+
+  const user = await getUserFromSession();
   return (
-    <div className={styles.page}>
+    <>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <div>
+            <Image src="/logo.png" alt="UKM Jaya" width={50} height={50} />
+          </div>
+          <Link href="/">
+            <h1>UKM Jaya</h1>
+          </Link>
+        </div>
+        <nav>
+          <div className={styles.search}>
+            <Link href="/app">Cari UKM</Link>
+          </div>
+          <div>
+            {user ? (
+              <NameLogout user={user} goUrl={'/'} />
+            ) : (
+              <Link href="/login" className={[styles.btnLogin]}>
+                Login
+              </Link>
+            )}
+          </div>
+        </nav>
+      </header>
       <main className={styles.main}>
         <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/latar.jpg"
+          width="1000"
+          height="1000"
+          alt="UKM Jaya"
+          className={styles.latar}
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+        <section className={styles.sec1}>
+          <h2>UKM Jaya</h2>
+          <p>
+            Bergabung bersama kami para UKM dan jadilah bagian dari UKM Jaya.
+          </p>
+          <Link href="/app">Cari Penawaran UKM</Link>
+        </section>
       </main>
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <section className={styles.logofooter}>
+          <div>
+            <Image src="/logo.png" alt="UKM Jaya" width={30} height={30} />
+          </div>
+          <Link href="/">
+            <h1>UKM Jaya</h1>
+          </Link>
+        </section>
+        <section>
+          <h2>Hubungi Kami</h2>
+          <p>+6284 43434 343</p>
+          <p>Jl. Raya Jaya No. 1, Jakarta, Indonesia</p>
+        </section>
       </footer>
-    </div>
+    </>
   );
 }

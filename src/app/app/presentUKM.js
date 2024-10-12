@@ -46,6 +46,8 @@ export default function PresentUKM({ userId }) {
                   ).toString("base64")}`}
                   alt={item.name}
                   className={styles.avatar}
+                  width={1000}
+                  height={1000}
                 />
                 <h3 className={styles.title}>{item.ukm.name}</h3>
               </div>

@@ -98,6 +98,8 @@ export default function ScreenLeft(userId) {
                 "base64"
               )}`}
               alt={data.name}
+              width={1000}
+              height={1000}
             />
           </div>
           <div dangerouslySetInnerHTML={{ __html: data.post }} />

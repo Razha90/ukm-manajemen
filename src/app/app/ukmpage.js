@@ -41,6 +41,8 @@ export default function UKMPage() {
                       ukm.avatar
                     ).toString("base64")}`}
                     alt={ukm.name}
+                    width={1000}
+                    height={1000}
                   />
                 </div>
                 <div className={styles.cardContent}>

@@ -19,7 +19,6 @@ export async function POST(request) {
  const { userId, ukmId } = body;
   console.log('userId:', ukmId);
 
-  // Validasi input
   const validation = validateUserUkmData(userId, ukmId);
   if (!validation.valid) {
     return NextResponse.json({ message: validation.message }, { status: 400 });
